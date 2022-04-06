@@ -20,6 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->db->insert("test_ws",Array("post"=>json_encode($_POST)));
+		//$this->load->view('welcome_message');
 	}
 }

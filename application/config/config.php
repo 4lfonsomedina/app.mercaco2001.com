@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'https://admin.testing-device.com/';
+$config['base_url'] = 'https://app.mercado2001.com/';
 if($_SERVER['SERVER_NAME']=='localhost'){
 	$config['base_url'] = 'http://localhost/admin_markets/';
 }

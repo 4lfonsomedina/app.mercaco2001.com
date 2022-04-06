@@ -34,7 +34,10 @@
         <li><a href="<?= site_url('Control_controller/busqueda') ?>"><i class="fa fa-search" aria-hidden="true"></i> Buscar</a></li>
         <li> <a href="<?= site_url('Control_controller/ligar') ?>"><i class="fa fa-link" aria-hidden="true"></i> Pago APP </a></li>
         <?php if($this->session->userdata('tipo')=='0'){?>
-          <li> <a href="<?= site_url('Control_controller/inventario') ?>"> <i class="fa fa-cubes" aria-hidden="true"></i> Inventario</a></li>
+          <li> <a href="<?= site_url('Control_controller/inventario') ?>"> <i class="fa fa-cubes" aria-hidden="true"></i> Productos</a></li>
+        <?php } ?>
+        <?php if($this->session->userdata('tipo')=='0'){?>
+          <li> <a href="<?= site_url('Control_controller/departamentos') ?>"> <i class="fa fa-cubes" aria-hidden="true"></i> Departamentos</a></li>
         <?php } ?>
         <?php if($this->session->userdata('tipo')=='0'){?>
           <li><a href="<?= site_url('Control_controller/historico') ?>"> <i class="fa fa-clock-o" aria-hidden="true"></i> Historico</a></li>

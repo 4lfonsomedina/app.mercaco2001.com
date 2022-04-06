@@ -63,6 +63,16 @@ class Control_controller extends CI_Controller {
 		$this->load->view('contenido/inventario',$data);
 		$this->load->view('pie');
 	}
+	function departamentos(){
+		$data['departamentos'] = $this->Control_model->get_departamentos();
+		$this->load->view('cabecera');
+		$this->load->view('contenido/departamentos',$data);
+		$this->load->view('pie');
+	}
+	function get_subdepartamentos(){
+		$data['subdepartamentos'] = $this->Control_model->get_subdepartamentos2($_POST['id_departamento']);
+		$this->load->view('contenido/subdepartamentos',$data);
+	}
 	function historico(){
 		$data['pedidos'] = $this->Control_model->get_pedidos3();
 		$this->load->view('cabecera');
@@ -89,6 +99,18 @@ class Control_controller extends CI_Controller {
 			file_put_contents(getcwd().'/assets/img/productos/'.$_POST['producto'].'.png', $data); 
 			$source_img = getcwd().'/assets/img/productos/'.$_POST['producto'].'.png';
 			$destination_img = getcwd().'/assets/img/productos/'.$_POST['producto'].'.png';
+			$this->compress_img($source_img, $destination_img, 65);
+			echo '1';
+		}
+		else{ echo '0';}
+	}
+	function subir_imagen_depsubdep(){
+		//echo getcwd();
+		$data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $_POST['imagen_base64']));
+		if(strlen($data)>1){
+			file_put_contents(getcwd().'/assets/img/dep/'.$_POST['nombre'].'.png', $data); 
+			$source_img = getcwd().'/assets/img/dep/'.$_POST['nombre'].'.png';
+			$destination_img = getcwd().'/assets/img/dep/'.$_POST['nombre'].'.png';
 			$this->compress_img($source_img, $destination_img, 65);
 			echo '1';
 		}
@@ -242,6 +264,25 @@ class Control_controller extends CI_Controller {
     	$this->load->view('cabecera');
 		$this->load->view('reportes/busqueda', $data);
 		$this->load->view('pie');
+    }
+    function act_departamento(){
+    	$this->Control_model->act_departamento($_POST);
+    }
+    function act_subdepartamento(){
+    	$this->Control_model->act_subdepartamento($_POST);
+    }
+    function alta_departamento(){
+    	$this->Control_model->alta_departamento($_POST);
+    	Redirect("Control_controller/departamentos");
+    }
+    function baja_departamento(){
+    	$this->Control_model->baja_departamento($_POST['id_departamento']);
+    }
+    function baja_subdepartamento(){
+    	$this->Control_model->baja_subdepartamento($_POST['id_subdepartamento']);
+    }
+    function alta_subdepartamento(){
+    	$this->Control_model->alta_subdepartamento($_POST);
     }
 }
 

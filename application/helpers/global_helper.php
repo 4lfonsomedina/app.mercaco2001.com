@@ -11,6 +11,10 @@ function mensaje_banco($mensaje){
 	}
 
 }
+function existe_img_dep($dep){
+	if (file_exists(getcwd().'/assets/img/dep/'.$dep.".png")) {return TRUE;} 
+	else {return FALSE;}
+}
 function existe_img_producto($producto){
 	if (file_exists(getcwd().'/assets/img/productos/'.$producto.".png")) {return TRUE;} 
 	else {return FALSE;}

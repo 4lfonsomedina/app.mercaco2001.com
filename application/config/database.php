@@ -72,8 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-$db_user='forge';
-$db_pass='qmPSVPucLNa3VC45VPdH';
+$db_user='merca151_admin';
+$db_pass='Mercado.2001';
 if($_SERVER['SERVER_NAME']=='localhost'){
 	$db_user='alfonso';
 	$db_pass='920624';
@@ -84,7 +84,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => $db_user,
 	'password' => $db_pass,
-	'database' => 'markets',
+	'database' => 'merca151_app',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

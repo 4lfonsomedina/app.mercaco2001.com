@@ -47,7 +47,7 @@
                         <input type="hidden" name="precio" id="f_precio" value="0.0000">
                         <input type="hidden" name="departamento" id="f_departamento" value="000">
                         <input type="hidden" name="descripcion" id="f_descripcion" value="Otro producto">
-                        <input type="hidden" name="imagen" id="f_imagen" value="https://admin.testing-device.com/assets/img/productos/01010101.png?643">
+                        <input type="hidden" name="imagen" id="f_imagen" value="https://app.mercado2001.com/assets/img/productos/01010101.png?643">
 
                         <input type="number" class="form-control" id="f_cantidad" value="1" name="cantidad" step="0.01">
                     </div>

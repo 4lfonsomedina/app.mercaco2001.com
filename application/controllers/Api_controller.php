@@ -283,7 +283,7 @@ class Api_controller extends CI_Controller {
 	function view_test_curl(){
 	
 
-		echo '<script src="https://admin.testing-device.com/assets/js/jquery.js"></script>
+		echo '<script src="https://app.mercado2001.com/assets/js/jquery.js"></script>
 
 		<a href="http://201.143.78.123:8051/ferbis-interno/index.php/API/api_Controller/test_curl">http://201.143.78.123:8051/ferbis-interno/index.php/API/api_Controller/test_curl</a>
 		<br><br><br>
@@ -554,7 +554,7 @@ class Api_controller extends CI_Controller {
 
 <br><br><br>
 <div style='width:100%; text-align:center; font-size:20px; padding:15px;'>
-<a id='android' class='device' href='https://m.facebook.com/story.php?story_fbid=4020786107953473&id=423427031022750&sfnsn=scwspwa'><img src='https://admin.testing-device.com/assets/img/FB.png' width='100px'><br>
+<a id='android' class='device' href='https://m.facebook.com/story.php?story_fbid=4020786107953473&id=423427031022750&sfnsn=scwspwa'><img src='https://app.mercado2001.com/assets/img/FB.png' width='100px'><br>
 Abrir publicación de sorteo en Facebook y participa</a>
 	<br>
 </div>

@@ -86,6 +86,9 @@ class Control_model extends CI_Model {
 	function get_subdepartamentos(){
 		return $this->db->get('subdepartamentos')->result();
 	}
+	function get_subdepartamentos2($id_departamento){
+		return $this->db->where('id_departamento',$id_departamento)->get('subdepartamentos')->result();
+	}
 	function get_subdep($dep){
 		$this->db->where('id_departamento',$dep);
 		$this->db->order_by('orden');
@@ -161,7 +164,27 @@ class Control_model extends CI_Model {
 		$this->db->order_by("fecha_entrega", "DESC");
 		return $this->db->get('pedidos')->result();
 	}
-
+	function act_departamento($data){
+		$id_departamento = $data['id_departamento']; unset($data['id_departamento']);
+		$this->db->where('id_departamento',$id_departamento)->update('departamentos',$data);
+	}
+	function act_subdepartamento($data){
+		$id_subdepartamento = $data['id_subdepartamento']; unset($data['id_subdepartamento']);
+		$this->db->where('id_subdepartamento',$id_subdepartamento)->update('subdepartamentos',$data);
+	}
+	function alta_departamento($data){
+		$this->db->insert("departamentos",$data);
+	}
+	function baja_departamento($id_departamento){
+		$this->db->where("id_departamento",$id_departamento)->delete("departamentos");
+		$this->db->where("id_departamento",$id_departamento)->delete("subdepartamentos");
+	}
+	function baja_subdepartamento($id_subdepartamento){
+		$this->db->where("id_subdepartamento",$id_subdepartamento)->delete("subdepartamentos");
+	}
+	function alta_subdepartamento($data){
+		$this->db->insert("subdepartamentos",$data);
+	}
 }
 
 /* End of file control_model.php */

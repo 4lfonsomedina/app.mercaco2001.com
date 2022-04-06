@@ -3,7 +3,7 @@
     "background_color": "#eb6e48",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "https://admin.testing-device.com/index.php/Login_controller/soy_chofer",
+    "start_url": "https://app.mercado2001.com/index.php/Login_controller/soy_chofer",
     "app_name": "SD Ferbis",
     "short_name": "ServDomFerb",
     "description": "Servicio a domicilio Ferbis",

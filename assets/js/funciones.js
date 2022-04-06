@@ -1,4 +1,4 @@
-var url_api = "https://admin.testing-device.com/index.php/api_controller/";
+var url_api = "https://app.mercado2001.com/index.php/api_controller/";
 $(document).ready(function() {
 	
 	var mascara_telefono= [{ "mask": "(###) ###-##-##"}, { "mask": "(###) ###-##-##"}];
@@ -312,7 +312,7 @@ $(document).ready(function() {
 				//alta de pedido
 				$.post(url_api+"alta_pedido",$("#pedido_form").serialize(),function(r3){
 					alert("Pedido programado!");
-					window.location.href = "https://admin.testing-device.com/index.php/Control_controller/dash";
+					window.location.href = "https://app.mercado2001.com/index.php/Control_controller/dash";
 				})
 			})
 		}).fail(function(error) { alert("Error de conexión..."); console.log(error.responseJSON); $(".btn_enviar_pedido").attr('disabled',false);});
@@ -737,6 +737,22 @@ $(document).on("click",".articulo_carrito",function(){
 		img.src = URL.createObjectURL(e.target.files[0]);
 
 	})
+	$(document).on('change','.p_imagen_dep',function(e){
+		$("#nombre_depsubdep").val($(this).attr('id_dep'));
+		var canvas = $('#canvas_img')[0];
+		canvas.getContext("2d").clearRect(0, 0, 300, 300);
+		var img = new Image;
+		img.onload = function(){
+			canvas.getContext("2d").clearRect(0, 0, 300, 300);
+			canvas.getContext("2d").drawImage(img,0,0,300,300);
+			$("#imagen_base64").val(canvas.toDataURL());
+			$.post("../Control_controller/subir_imagen_depsubdep",$("#img_dep_form").serialize(),function(r){
+				$("#img_"+$("#nombre_depsubdep").val()).attr('src',$("#base_url").val()+'assets/img/dep/'+$("#nombre_depsubdep").val()+'.png?'+Math.round(Math.random()*10))
+			})
+		};
+		img.src = URL.createObjectURL(e.target.files[0]);
+
+	})
 	$(document).on("click",".file_camera",function(){
 		$(this).parent('td').find('input').click();
 	})
@@ -822,13 +838,13 @@ function string_pedido_chofer(r){
 }
 
 $("#btn_regresar_chofer").click(function(){
-			window.location.href="https://admin.testing-device.com/index.php/Login_controller/soy_chofer";
+			window.location.href="https://app.mercado2001.com/index.php/Login_controller/soy_chofer";
 })
 $("#btn_finalizar_chofer").click(function(){
 	console.log("hola");
 	$.post(url_api+'chofer_pedidos_listos',$("#form_pedidos_chofer").serialize(),function(){
 		mensaje_chofer("Pedidos registrados exitosamente!");
-		window.location.href="https://admin.testing-device.com/index.php/Login_controller/soy_chofer";
+		window.location.href="https://app.mercado2001.com/index.php/Login_controller/soy_chofer";
 	})
 })
 function mensaje_chofer($mensaje){

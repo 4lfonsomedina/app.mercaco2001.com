@@ -156,11 +156,7 @@ class Api_model extends CI_Model {
 		$id_cliente = $this->db->insert_id();
 		
 		//Nueva notificacion
-		$mensaje="Hace más de 20 años en FERBIS soñamos con la idea de ofrecer productos sanos y de excelente sabor, que vinieran de los campos hasta nuestras casas y cambiaran tu concepto de calidad.<br><br>
-
-Para lógralo, todos los días cuidamos con integridad el proceso de selección de todos nuestros productos. Así una simple idea se ha convertido en una idea cumplida.<br><br>
-
-Para nosotros lo único más importante que la calidad es el compromiso de ofrecerla, mejorando día a día nuestro servicio al cliente, es por eso que nos complace compartir, tu aplicación móvil con la que podrás realizar pedidos de una manera fácil y rápida desde la comodidad de tu hogar, a domicilio o recoger en tu tienda más cercana.";
+		$mensaje="¡Bienvenido!";
 
 		$this->alta_notificacion($id_cliente,"¡Bienvenido(a)!",$mensaje);
 
@@ -607,7 +603,7 @@ Para nosotros lo único más importante que la calidad es el compromiso de ofrec
 			"&BNRG_CODIGO_SEGURIDAD=".$data['cvv'].
 			"&BNRG_REF_CLIENTE1=".$data['cliente'].
 			"&BNRG_IDIOMA_SALIDA=ES".
-			"&BNRG_URL_RESPUESTA=https://admin.testing-device.com/index.php/api_controller/comprobante_pago".
+			"&BNRG_URL_RESPUESTA=https://app.mercado2001.com/index.php/api_controller/comprobante_pago".
 			"&BNRG_REF_TRANS_PREVIA=PEDIDOFERBIS".$data['id_pedido'];
 		//echo $data_post;
 		$ch = curl_init();
